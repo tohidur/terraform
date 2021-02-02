@@ -1,7 +1,7 @@
 # Production VPC
 resource "aws_vpc" "production-vpc" {
-  cidr_block          = "10.0.0.0/16"
-  enable_dns_support  = true
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
   enable_dns_hostnames = true
 }
 
@@ -61,9 +61,9 @@ resource "aws_route_table_association" "private-route-2-association" {
 
 # Elastic IP
 resource "aws_eip" "elastic-ip-for-nat-gw" {
-  vpc                        = true
+  vpc                       = true
   associate_with_private_ip = "10.0.0.5"
-  depends_on                 = [aws_internet_gateway.production-igw]
+  depends_on                = [aws_internet_gateway.production-igw]
 }
 
 

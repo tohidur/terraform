@@ -44,14 +44,6 @@ variable "health_check_path_users" {
 }
 
 
-# ecs
-
-variable "ecs_cluster_name" {
-  description = "Name of the ECS cluster"
-  default     = "production"
-}
-
-
 # logs
 
 variable "log_retention_in_days" {
@@ -64,5 +56,46 @@ variable "log_retention_in_days" {
 variable "ssh_pubkey_file" {
   description = "Path to an SSH public key"
   default     = "~/.ssh/id_rsa.pub"
+}
+
+
+# ecs
+
+variable "ecs_cluster_name" {
+  description = "Name of the ECS cluster"
+  default     = "production"
+}
+variable "amis" {
+  description = "Which AMI to spawn."
+  default = {
+    us-west-1 = "ami-0667a9cc6a93f50fe"
+  }
+}
+variable "instance_type" {
+  default = "t2.micro"
+}
+variable "docker_image_url_django" {
+  description = "Docker image to run in the ECS cluster"
+  default     = "<AWS_ACCOUNT_ID>.dkr.ecr.us-west-1.amazonaws.com/django-app:latest"
+}
+variable "app_count" {
+  description = "Number of Docker containers to run"
+  default     = 2
+}
+
+
+# auto scaling
+
+variable "autoscale_min" {
+  description = "Minimum autoscale (number of EC2)"
+  default     = "1"
+}
+variable "autoscale_max" {
+  description = "Maximum autoscale (number of EC2)"
+  default     = "10"
+}
+variable "autoscale_desired" {
+  description = "Desired autoscale (number of EC2)"
+  default     = "4"
 }
 
