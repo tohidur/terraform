@@ -68,7 +68,7 @@ variable "ecs_cluster_name" {
 variable "amis" {
   description = "Which AMI to spawn."
   default = {
-    us-west-1 = "ami-0667a9cc6a93f50fe"
+    ap-south-1 = "ami-0667a9cc6a93f50fe"
   }
 }
 variable "instance_type" {
@@ -97,5 +97,24 @@ variable "autoscale_max" {
 variable "autoscale_desired" {
   description = "Desired autoscale (number of EC2)"
   default     = "4"
+}
+
+
+# rds
+
+variable "rds_db_name" {
+  description = "RDS database name"
+  default     = "mydb"
+}
+variable "rds_username" {
+  description = "RDS database username"
+  default     = "tohi"
+}
+variable "rds_password" {
+  description = "RDS database password"
+}
+variable "rds_instance_class" {
+  description = "RDS instance type"
+  default     = "db.t2.micro"
 }
 
