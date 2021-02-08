@@ -118,3 +118,10 @@ variable "rds_instance_class" {
   default     = "db.t2.micro"
 }
 
+
+# domain
+variable "certificate_arn" {
+    description = "AWS Certificate Manager ARN for validate domain"
+    default = "ADD YOUR ARN HERE"
+}
+
